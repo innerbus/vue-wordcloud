@@ -262,7 +262,7 @@
                     text.on("mouseover", function (d) {
                         tooltip.transition()
                             .duration(200)
-                            .style("opacity", .7)
+                            /*.style("opacity", .7)*/
                         tooltip.html(d[countKey])
                     })
                         .on("mousemove", function (d) {
@@ -327,10 +327,10 @@
     div.tooltip.word-cloud.maximized {
         position: absolute;
         /*width: 140px;*/
-        height: 40px;
+        height: 41px;
         padding: 0 20px 0 20px;
         font: 16px Arial;
-        line-height: 40px;
+        line-height: 41px;
         color: white;
         background: black;
         border: 0px;
