@@ -262,7 +262,7 @@
                     text.on("mouseover", function (d) {
                         tooltip.transition()
                             .duration(200)
-                            /*.style("opacity", .7)*/
+                            .style("opacity", .96)
                         tooltip.html(d[countKey])
                     })
                         .on("mousemove", function (d) {
