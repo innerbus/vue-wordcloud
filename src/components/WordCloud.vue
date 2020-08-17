@@ -134,15 +134,16 @@
         watch: {
             words: {
                 handler: function (val, oldVal) {
-                    this.update()
+                    /*this.update()*/
+                    this.renderChart()
                 },
                 deep: true
             },
             fontSize: {
                 handler: function (val, oldVal) {
-                    // clear chart
+                    /*// clear chart
                     this.chart.select('g').remove()
-                    this.renderChart()
+                    this.renderChart()*/
                 },
                 deep: true
             }
@@ -150,7 +151,8 @@
         methods: {
             onResize() {
                 this.getSize()
-                throttle(this.update)
+                this.chart.select('g').remove()
+                /*throttle(this.update)*/
             },
             getSize() {
                 this.svgWidth = this.$el.clientWidth
