@@ -1,5 +1,5 @@
-<template>
-    <div class="wordCloud" v-resize="onResize"></div>
+<template xmlns:v-resize="http://www.w3.org/1999/xhtml">
+    <div class="wordCloud" v-resize:debounce.500="onResize"></div>
 </template>
 
 <script>
@@ -135,12 +135,14 @@
             words: {
                 handler: function (val, oldVal) {
                     /*this.update()*/
-                    this.renderChart()
+                    /*this.clearChart()
+                    this.renderChart()*/
                 },
                 deep: true
             },
             fontSize: {
                 handler: function (val, oldVal) {
+                    this.clearChart()
                     /*// clear chart
                     this.chart.select('g').remove()
                     this.renderChart()*/
@@ -149,9 +151,13 @@
             }
         },
         methods: {
-            onResize() {
-                this.getSize()
+            clearChart() {
                 this.chart.select('g').remove()
+            },
+            onResize() {
+                this.clearChart()
+                this.getSize()
+                this.renderChart()
                 /*throttle(this.update)*/
             },
             getSize() {
